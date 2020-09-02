@@ -5,7 +5,7 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 **Our main work is summarized as following**
 - We divided the work into four parts for development: Detection part, tracking part, speed estimation part and dataset, in which we only focus on reading papers, perceive those ideas and apply them to improve the results.
 - For object detection, we only research and apply various network architecture such as RetinaNet, Faster R-CNN as well as recent techniques for object detection including ATSS, data Augmentation, Focal KL Loss, etc. to push the accuracy.
-- For tracking and speed estimation, we focus on applying IOU tracker and modify it for stable tracking results; applying formular V=S/t for speed estimation. We mainly evaluate the tracking result by human visualization because of the limita- tion in label for those parts.
+- For tracking and speed estimation, we focus on applying IOU tracker and modify it for stable tracking results; applying formular V=S/t for speed estimation. We mainly evaluate the tracking result by human visualization because of the limitation of label for those parts.
 - Make new dataset: The main problem we encounter is GPU resources for train Deep Learning Network. If we utilized the existed dataset which is extremely large and heavy, we could not do on that. Hence, we need a new dataset which is liter and apply transfer learning technique to reach our target. The details of our dataset is in the later section.
 
 **Structure of this README**
@@ -45,3 +45,6 @@ pip install -e ./
 ```bash
 ln -s /home/cybercore/tank/TS/data/thesisdata data
 ```
+
+## Dataset preparation
+- Download dataset from Google Drive [Link]()
