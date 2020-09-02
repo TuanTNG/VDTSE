@@ -84,18 +84,18 @@ DATA_ROOT = 'data/'
 data = dict(
     train=dict(
         ann_file=DATA_ROOT + 'annotations/train.json',
-        img_prefix=DATA_ROOT + 'images/full/full/',
+        img_prefix=DATA_ROOT + 'images/',
         classes=classes,
         pipeline=train_pipeline
     ),
     val=dict(
         ann_file=DATA_ROOT + 'annotations/test.json',
-        img_prefix=DATA_ROOT + 'images/full/full/',
+        img_prefix=DATA_ROOT + 'images/',
         classes=classes,
     ),
     test=dict(
         ann_file=DATA_ROOT + 'annotations/test.json',
-        img_prefix=DATA_ROOT + 'images/full/full/',
+        img_prefix=DATA_ROOT + 'images/',
         classes=classes,
     ))
 

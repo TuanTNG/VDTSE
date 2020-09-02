@@ -113,27 +113,21 @@ DATA_ROOT = 'data/'
 data = dict(
     train=dict(
         ann_file=DATA_ROOT + 'annotations/train.json',
-        img_prefix=DATA_ROOT + 'images/full/full/',
+        img_prefix=DATA_ROOT + 'images/',
         classes=classes,
         pipeline=train_pipeline
     ),
     val=dict(
         ann_file=DATA_ROOT + 'annotations/test.json',
-        img_prefix=DATA_ROOT + 'images/full/full/',
+        img_prefix=DATA_ROOT + 'images/',
         classes=classes,
     ),
     test=dict(
         ann_file=DATA_ROOT + 'annotations/test.json',
-        img_prefix=DATA_ROOT + 'images/full/full/',
+        img_prefix=DATA_ROOT + 'images/',
         classes=classes,
     ))
 
 # optimizer
 optimizer = dict(type='SGD', lr=1e-2, momentum=0.9, weight_decay=0.0001)
 
-asdf
-as atss_r50_fpn_1x_randomresizecrop_street
-sdf   dsaf
-asf
-dir
-a = 1 + 5 - 12 - 3 - 2
