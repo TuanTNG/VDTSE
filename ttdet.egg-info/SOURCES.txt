@@ -1,0 +1,7 @@
+README.md
+setup.py
+ttdet.egg-info/PKG-INFO
+ttdet.egg-info/SOURCES.txt
+ttdet.egg-info/dependency_links.txt
+ttdet.egg-info/not-zip-safe
+ttdet.egg-info/top_level.txt
