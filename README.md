@@ -9,6 +9,7 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 - Make new dataset: The main problem we encounter is GPU resources for train Deep Learning Network. If we utilized the existed dataset which is extremely large and heavy, we could not do on that. Hence, we need a new dataset which is liter and apply transfer learning technique to reach our target. The details of our dataset is in the later section.
 
 **Structure of this README**
+- Overall architecture
 - Installation
 - Dataset preparation
 - Train
@@ -16,6 +17,9 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 - Result
 - Team's information
 - Citation
+
+## Overall Architecture
+![alt text](./readme_images/OurArchitecture.PNG) <br>
 
 ## Installation
 - OS: Ubuntu 18.04
