@@ -18,6 +18,8 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 - Citation
 
 ## Installation
+- OS: Ubuntu 18.04
+- Python: 3.7.9
 #### Create conda env
 ```bash
 conda create -n vdts python=3.7 -y
@@ -33,8 +35,6 @@ pip install mmcv==0.6.2
 **Note**:  Make sure that your compilation CUDA version and runtime CUDA version match. You can check the supported CUDA version for precompiled packages on the [Pytorch website](https://pytorch.org/)
 
 #### Install other requirements
-- OS: Ubuntu 18.04
-- Python: 3.7.9
 
 ```bash
 pip install git+https://github.com/thuyngch/cvut
