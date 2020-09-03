@@ -11,8 +11,9 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 **Structure of this README**
 - Installation
 - Dataset preparation
-- Train the network
-- Inference
+- Train
+- Test
+- Result
 - Citation
 
 ## Installation
@@ -53,19 +54,44 @@ ln -s <PATH TO DATASET> data
 **For Example**, my dataset named `data` is located at `/home/tuan/Desktop`, I do the following command: <br> <br>
 ![alt text](./readme_images/ln_s.png)
 
-<br>
-The result in the image above is that I make the symblic link name `data` to the folder containing dataset.
 
-## Train the network
+The result in the image above is that I make the symblic link name `data` to the folder containing dataset.
+<br>
+## Train
+- Run the following command in bash shell:
+```bash
+#!/usr/bin/env bash
+set -e
+CFG="atss_r50_fpn_1x_street"                                        # file name of config file
+WORKDIR="../TS/checkpoints/transfer_weight/${CFG}"                  # directory for saving checkpoints during training
+CONFIG="configs/street/${CFG}.py"                                   # path to your config file
+GPUS=2                                                              # number of GPU while training
+LOAD_FROM="../TS/checkpoints/pretrained/atss_r50_fpn_1x_coco.pth"   # Pretrain weight from COCO dataset
+export CUDA_VISIBLE_DEVICES=0,1
+bash tools/dist_train.sh $CONFIG $GPUS --work-dir $WORKDIR  --options DATA_ROOT=$DATA_ROOT --load_from $LOAD_FROM
+```
+- In the above example, config file is `configs/street/atss_r50_fpn_1x_street.py`, pretrained weight is `atss_r50_fpn_1x_coco.pth` and saved at `../TS/checkpoints/pretrained`. Checkpoints will save under `../TS/checkpoints/transfer_weight/atss_r50_fpn_1x_street`.
+
+- NOTE: The pretrained weight from COCO is download at [MMDetection repo](https://github.com/open-mmlab/mmdetection), following section will give the specific link. 
+
+
+## Test 
+- Run the following command in bash shell:
 
 ```bash
 #!/usr/bin/env bash
 set -e
-CFG="atss_r18_fpn_2x_street_lr001"
-WORKDIR="../TS/checkpoints/transfer_weight/${CFG}"
-CONFIG="configs/coco/street/${CFG}.py"
-GPUS=2
+export PYTHONPATH="$(dirname $0)/..":$PYTHONPATH
 
+CONFIG_FILE="atss_r18_fpn_2x_street"                            # file name of config file
+WORKDIR="../TS/checkpoints/transfer_weight/${CONFIG_FILE}"      # directory of checkpoints
+CONFIG="configs/street/${CONFIG_FILE}.py"                       # path to your config file
+CHECKPOINT="${WORKDIR}/epoch_12.pth"                            # checkpoint file, in this case `epoch_12.pth`
+RESULT="${WORKDIR}/epoch_12.pkl"
+
+GPUS=2
 export CUDA_VISIBLE_DEVICES=0,1
-bash tools/dist_train.sh $CONFIG $GPUS --work-dir $WORKDIR --options DATA_ROOT=$DATA_ROOT
+
+python -m torch.distributed.launch --nproc_per_node=$GPUS --master_port=$((RANDOM + 10000)) \
+    tools/test.py $CONFIG $CHECKPOINT --launcher pytorch --out $RESULT --eval bbox
 ```
