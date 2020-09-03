@@ -3,7 +3,6 @@ _base_ = [
     '../_base_/schedules/schedule_1x.py', 
     '../_base_/default_runtime.py'
 ]
-load_from = '../checkpoints/pretrained/atss_r50_fpn_1x_coco.pth'
 
 model = dict(
     type='ATSS',
@@ -99,7 +98,7 @@ data = dict(
     ))
 
 # optimizer
-optimizer = dict(type='SGD', lr=1e-3, momentum=0.9, weight_decay=0.0001)
+optimizer = dict(type='SGD', lr=1e-2, momentum=0.9, weight_decay=0.0001)
 lr_config = dict(
     policy='step',
     warmup='linear',

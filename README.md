@@ -44,13 +44,28 @@ pip install -e ./
 
 ## Dataset preparation
 - Download dataset from Google Drive [Link](https://drive.google.com/file/d/1EcfzRi7bHdZDAwIDBdBtyAIEsWmytqUa/view?usp=sharing) and unzip it.
-
+- The data after extracted should following the following structure: <br>
+![alt text](./readme_images/data_dir_format.png) <br>
 - Make symblic link to the dataset you just downloaded from project directory:
 ```bash
 ln -s <PATH TO DATASET> data
 ```
-**For Example**, my dataset named `data` is located at `/home/tuan/Desktop` <br> <br>, I do the following command:
+**For Example**, my dataset named `data` is located at `/home/tuan/Desktop`, I do the following command: <br> <br>
 ![alt text](./readme_images/ln_s.png)
 
 <br>
 The result in the image above is that I make the symblic link name `data` to the folder containing dataset.
+
+## Train the network
+
+```bash
+#!/usr/bin/env bash
+set -e
+CFG="atss_r18_fpn_2x_street_lr001"
+WORKDIR="../TS/checkpoints/transfer_weight/${CFG}"
+CONFIG="configs/coco/street/${CFG}.py"
+GPUS=2
+
+export CUDA_VISIBLE_DEVICES=0,1
+bash tools/dist_train.sh $CONFIG $GPUS --work-dir $WORKDIR --options DATA_ROOT=$DATA_ROOT
+```

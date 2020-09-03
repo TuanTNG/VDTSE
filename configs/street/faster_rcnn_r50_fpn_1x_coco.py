@@ -5,7 +5,6 @@ _base_ = [
     '../_base_/default_runtime.py'
 ]
 
-load_from = '../checkpoints/pretrained/faster_rcnn_r50_fpn_2x_coco.pth'
 
 model = dict(
     backbone=dict(

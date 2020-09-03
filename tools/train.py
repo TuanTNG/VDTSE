@@ -26,6 +26,8 @@ def parse_args():
     parser.add_argument(
         '--resume-from', help='the checkpoint file to resume from')
     parser.add_argument(
+        '--load_from', default=None, help='the checkpoint file to load from')
+    parser.add_argument(
         '--no-validate',
         action='store_true',
         help='whether not to evaluate the checkpoint during training')
@@ -65,6 +67,8 @@ def main():
     args = parse_args()
 
     cfg = Config.fromfile(args.config)
+    if args.load_from is not None:
+        cfg.load_from = args.load_from
     if args.options is not None:
         cfg.merge_from_dict(args.options)
     # set cudnn_benchmark

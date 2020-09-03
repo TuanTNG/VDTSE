@@ -1,9 +1,8 @@
 _base_ = [
     '../_base_/datasets/coco_detection.py',
-    '../_base_/schedules/schedule_2x.py', 
+    '../_base_/schedules/schedule_1x.py', 
     '../_base_/default_runtime.py'
 ]
-load_from = '../checkpoints/pretrained/atss_r50_fpn_1x_coco.pth'
 
 model = dict(
     type='ATSS',
@@ -17,24 +16,16 @@ model = dict(
         norm_cfg=dict(type='BN', requires_grad=False),
         norm_eval=True,
         style='pytorch'),
-        neck=[dict(
-                type='FPN',
-                in_channels=[256, 512, 1024, 2048],
-                out_channels=256,
-                start_level=1,
-                add_extra_convs='on_output',
-                num_outs=5),
-            dict(
-                type='SEPC',
-                out_channels=256,
-                Pconv_num=4,
-                pconv_deform=True,
-                lcconv_deform=True,
-                iBN=False,  # when open, please set imgs/gpu >= 4
-            )
-        ],
+    neck=dict(
+            type='FPN',
+            in_channels=[256, 512, 1024, 2048],
+            out_channels=256,
+            start_level=1,
+            add_extra_convs='on_output',
+            num_outs=5
+        ),
     bbox_head=dict(
-        type='SEPC_ATSSHead',
+        type='ATSSHead',
         num_classes=5,
         in_channels=256,
         stacked_convs=4,
@@ -71,25 +62,83 @@ test_cfg = dict(
     nms=dict(type='nms', iou_thr=0.6),
     max_per_img=100)
 
-classes = ('motorbike','car','bus','truck','person',)
-DATA_ROOT = 'data/'
-img_norm_cfg = dict(
-    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 
+img_norm_cfg = dict(
+    mean=[127.5, 127.5, 127.5], std=[127.5, 127.5, 127.5], to_rgb=True)
+
+albu_train_transforms = [
+    dict(
+        type='ShiftScaleRotate',
+        shift_limit=0.15,
+        scale_limit=0.15,
+        rotate_limit=30,
+        border_mode=0,
+        value=0,
+        p=0.2),
+    dict(
+        type='RandomBrightnessContrast',
+        brightness_limit=[0.1, 0.3],
+        contrast_limit=[0.1, 0.3],
+        p=0.2),
+    dict(
+        type='OneOf',
+        transforms=[
+            dict(
+                type='RGBShift',
+                r_shift_limit=10,
+                g_shift_limit=10,
+                b_shift_limit=10,
+                p=1.0),
+            dict(
+                type='HueSaturationValue',
+                hue_shift_limit=20,
+                sat_shift_limit=30,
+                val_shift_limit=20,
+                p=1.0)
+        ],
+        p=0.1),
+    dict(type='JpegCompression', quality_lower=40, quality_upper=50, p=0.2),
+    dict(type='ChannelShuffle', p=0.1),
+    dict(
+        type='OneOf',
+        transforms=[
+            dict(type='Blur', blur_limit=3, p=1.0),
+            dict(type='MedianBlur', blur_limit=3, p=1.0)
+        ],
+        p=0.1),
+]
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
-    dict(type='Resize', img_scale=(int(1333*2.5), int(800*2.5)), keep_ratio=True),
+    dict(type='Resize', img_scale=[(640, 480), (1333, 800)], keep_ratio=True),
     dict(type='RandomFlip', flip_ratio=0),
-    dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
+    dict(
+        type='Albu',
+        transforms=albu_train_transforms,
+        bbox_params=dict(
+            type='BboxParams',
+            format='pascal_voc',
+            label_fields=['gt_labels'],
+            min_visibility=0.0,
+            filter_lost_elements=False),
+        keymap={
+            'img': 'image',
+            'gt_bboxes': 'bboxes'
+        },
+        update_pad_shape=False,
+        skip_img_without_anno=True
+    ),
+    dict(type='Normalize', **img_norm_cfg),
     dict(type='DefaultFormatBundle'),
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels']),
 ]
 
+
+classes = ('motorbike','car','bus','truck','person',)
+DATA_ROOT = 'data/'
+
 data = dict(
-    # samples_per_gpu=8,
-    workers_per_gpu=6,
     train=dict(
         ann_file=DATA_ROOT + 'annotations/train.json',
         img_prefix=DATA_ROOT + 'images/',

@@ -3,8 +3,7 @@ _base_ = [
     '../_base_/schedules/schedule_1x.py',
     '../_base_/default_runtime.py'
 ]
-# load_from = '../checkpoints/pretrained/atss_r50_fpn_1x_coco.pth'
-resume_from = '../checkpoints/transfer_weight/atss_r50_fpn_1x_randomresizecrop_street/epoch_6.pth'
+
 model = dict(
     type='ATSS',
     pretrained='torchvision://resnet50',
