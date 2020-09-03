@@ -113,10 +113,10 @@ Our results of the object detection method are summarized in the following table
   overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-34fe{background-color:#c0c0c0;border-color:inherit;text-align:center;vertical-align:top}
 .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-llyw{background-color:#c0c0c0;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-kfkg{background-color:#dae8fc;border-color:inherit;text-align:center;vertical-align:top}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-x6qq{background-color:#dae8fc;border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <table class="tg">
 <thead>
@@ -138,62 +138,47 @@ Our results of the object detection method are summarized in the following table
 </thead>
 <tbody>
   <tr>
-    <td class="tg-c3ow">1</td>
-    <td class="tg-c3ow">YOLOv3</td>
-    <td class="tg-c3ow">+Cutmix</td>
-    <td class="tg-c3ow">yes</td>
-    <td class="tg-c3ow">----</td>
-    <td class="tg-c3ow">3</td>
-    <td class="tg-c3ow">0.63</td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-c3ow" rowspan="3"><br><br>Original</td>
+    <td class="tg-kfkg">1</td>
+    <td class="tg-kfkg">YOLOv3</td>
+    <td class="tg-kfkg">+Cutmix</td>
+    <td class="tg-kfkg">yes</td>
+    <td class="tg-kfkg">----</td>
+    <td class="tg-kfkg">3</td>
+    <td class="tg-kfkg">0.63</td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg" rowspan="3"><br><br>Original</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">2</td>
-    <td class="tg-c3ow">Vanila RetinaNet - R50</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.632</td>
-    <td class="tg-c3ow">18.2</td>
-    <td class="tg-c3ow">1518x800</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
+    <td class="tg-kfkg">2</td>
+    <td class="tg-kfkg">Vanila RetinaNet - R50</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">1x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.632</td>
+    <td class="tg-kfkg">18.2</td>
+    <td class="tg-kfkg">1518x800</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
   </tr>
   <tr>
-    <td class="tg-c3ow">16</td>
-    <td class="tg-c3ow">Faster R-CNN</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow">0.481</td>
-    <td class="tg-c3ow">x</td>
-    <td class="tg-c3ow">x</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-34fe"></td>
+    <td class="tg-kfkg">16</td>
+    <td class="tg-kfkg">Faster R-CNN</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">1x</td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg">0.481</td>
+    <td class="tg-kfkg">x</td>
+    <td class="tg-kfkg">x</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
   </tr>
   <tr>
     <td class="tg-c3ow">3</td>
@@ -211,77 +196,47 @@ Our results of the object detection method are summarized in the following table
     <td class="tg-c3ow">Baseline</td>
   </tr>
   <tr>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-34fe"></td>
+    <td class="tg-kfkg">4</td>
+    <td class="tg-kfkg">ATSS+Net-R18</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">1x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.522</td>
+    <td class="tg-kfkg">30</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg" rowspan="3"><br><br>Different <br><br>Backbones</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">4</td>
-    <td class="tg-c3ow">ATSS+Net-R18</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.522</td>
-    <td class="tg-c3ow">30</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-c3ow" rowspan="3"><br><br>Different <br><br>Backbones</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">ATSS+MobileNetV3</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">1x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.646</td>
+    <td class="tg-kfkg">32.5</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
   </tr>
   <tr>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">ATSS+MobileNetV3</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.646</td>
-    <td class="tg-c3ow">32.5</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">6</td>
-    <td class="tg-c3ow">Vanila RetinaNet with MobileNetv3</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.38</td>
-    <td class="tg-c3ow">x</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-34fe"></td>
+    <td class="tg-kfkg">6</td>
+    <td class="tg-kfkg">Vanila RetinaNet with MobileNetv3</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">1x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.38</td>
+    <td class="tg-kfkg">x</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
   </tr>
   <tr>
     <td class="tg-c3ow">7</td>
@@ -299,49 +254,19 @@ Our results of the object detection method are summarized in the following table
     <td class="tg-c3ow">Augment</td>
   </tr>
   <tr>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-34fe"></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">8</td>
-    <td class="tg-c3ow">ATSS-R50</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.759</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-c3ow">4096x3072</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-c3ow">Big size</td>
-  </tr>
-  <tr>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-34fe"></td>
+    <td class="tg-kfkg">8</td>
+    <td class="tg-kfkg">ATSS-R50</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">1x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.759</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-kfkg">4096x3072</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg">Big size</td>
   </tr>
   <tr>
     <td class="tg-c3ow">9</td>
@@ -387,77 +312,47 @@ Our results of the object detection method are summarized in the following table
     <td class="tg-0pky"></td>
   </tr>
   <tr>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-34fe"></td>
+    <td class="tg-kfkg">12</td>
+    <td class="tg-kfkg">ATSS-R50</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">yes</td>
+    <td class="tg-kfkg">2x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.728</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg" rowspan="3"><br><br><br>2x</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">12</td>
-    <td class="tg-c3ow">ATSS-R50</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">yes</td>
-    <td class="tg-c3ow">2x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.728</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-c3ow" rowspan="3"><br><br><br>2x</td>
+    <td class="tg-kfkg">13</td>
+    <td class="tg-kfkg">ATSS-R50</td>
+    <td class="tg-kfkg">yes</td>
+    <td class="tg-kfkg">yes</td>
+    <td class="tg-kfkg">2x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.75</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
   </tr>
   <tr>
-    <td class="tg-c3ow">13</td>
-    <td class="tg-c3ow">ATSS-R50</td>
-    <td class="tg-c3ow">yes</td>
-    <td class="tg-c3ow">yes</td>
-    <td class="tg-c3ow">2x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.75</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">14</td>
-    <td class="tg-c3ow">ATSS-R50</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">2x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.747</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-34fe"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-llyw"></td>
-    <td class="tg-34fe"></td>
+    <td class="tg-kfkg">14</td>
+    <td class="tg-kfkg">ATSS-R50</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">no</td>
+    <td class="tg-kfkg">2x</td>
+    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">0.747</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
+    <td class="tg-x6qq"></td>
   </tr>
   <tr>
     <td class="tg-c3ow">15</td>
