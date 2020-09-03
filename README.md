@@ -107,7 +107,7 @@ python tools/benchmark.py <YOUR_CONFIG_FILE.py>
 
 ## Result
 Our results of the object detection method are summarized in the following table:
-<style type="text/css">
+<!-- <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
@@ -116,7 +116,7 @@ Our results of the object detection method are summarized in the following table
 .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
 .tg .tg-kfkg{background-color:#dae8fc;border-color:inherit;text-align:center;vertical-align:top}
 .tg .tg-n533{background-color:#dae8fc;border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
-</style>
+</style> -->
 <table class="tg">
 <thead>
   <tr>
