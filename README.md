@@ -115,8 +115,7 @@ Our results of the object detection method are summarized in the following table
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
 .tg .tg-kfkg{background-color:#dae8fc;border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-x6qq{background-color:#dae8fc;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-n533{background-color:#dae8fc;border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
 </style>
 <table class="tg">
 <thead>
@@ -126,30 +125,28 @@ Our results of the object detection method are summarized in the following table
     <th class="tg-c3ow"><span style="font-weight:bold">Albu</span></th>
     <th class="tg-c3ow"><span style="font-weight:bold">Multiscale training</span></th>
     <th class="tg-c3ow"><span style="font-weight:bold">Scheduler</span></th>
-    <th class="tg-c3ow"><span style="font-weight:bold">FPN levels</span></th>
     <th class="tg-c3ow"><span style="font-weight:bold">mAP</span></th>
     <th class="tg-c3ow"><span style="font-weight:bold">FPS</span></th>
     <th class="tg-c3ow">Image size</th>
-    <th class="tg-0pky">Config</th>
-    <th class="tg-0pky">COCO Pretrained</th>
-    <th class="tg-0pky">Our weight</th>
+    <th class="tg-c3ow">Config</th>
+    <th class="tg-c3ow">COCO Pretrained</th>
+    <th class="tg-c3ow">Our weight</th>
     <th class="tg-c3ow">Note</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td class="tg-kfkg">1</td>
-    <td class="tg-kfkg">YOLOv3</td>
+    <td class="tg-kfkg">YOLOv3 (3fpn levels)</td>
     <td class="tg-kfkg">+Cutmix</td>
     <td class="tg-kfkg">yes</td>
     <td class="tg-kfkg">----</td>
-    <td class="tg-kfkg">3</td>
     <td class="tg-kfkg">0.63</td>
     <td class="tg-kfkg"></td>
     <td class="tg-kfkg">---</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg">x</td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
     <td class="tg-kfkg" rowspan="3"><br><br>Original</td>
   </tr>
   <tr>
@@ -158,130 +155,107 @@ Our results of the object detection method are summarized in the following table
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">1x</td>
-    <td class="tg-kfkg">5</td>
     <td class="tg-kfkg">0.632</td>
     <td class="tg-kfkg">18.2</td>
     <td class="tg-kfkg">1518x800</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"><a href="https://github.com/TuanTNG/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/blob/master/configs/street/retinanet_r50_fpn_1x_street.py" target="_blank" rel="noopener noreferrer">retinanet_r50_fpn_1x_street.py</a></td>
+    <td class="tg-kfkg"><a href="http://download.openmmlab.com/mmdetection/v2.0/retinanet/retinanet_r50_fpn_2x_coco/retinanet_r50_fpn_2x_coco_20200131-fdb43119.pth" target="_blank" rel="noopener noreferrer">retinanet_r50_fpn_2x_coco.pth</a></td>
+    <td class="tg-kfkg"><a href="https://1drv.ms/u/s!AmoaChPnSuIOg3QZgpqDXhOSi3k8?e=2puiPq" target="_blank" rel="noopener noreferrer">retinanet_r50_fpn_1x_street</a></td>
   </tr>
   <tr>
-    <td class="tg-kfkg">16</td>
+    <td class="tg-kfkg">3</td>
     <td class="tg-kfkg">Faster R-CNN</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">1x</td>
-    <td class="tg-kfkg"></td>
     <td class="tg-kfkg">0.481</td>
     <td class="tg-kfkg">x</td>
     <td class="tg-kfkg">x</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"><a href="https://github.com/TuanTNG/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/blob/master/configs/street/faster_rcnn_r50_fpn_1x_street.py" target="_blank" rel="noopener noreferrer">faster_rcnn_r50_fpn_1x_street.py</a></td>
+    <td class="tg-kfkg"><a href="http://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_2x_coco/faster_rcnn_r50_fpn_2x_coco_bbox_mAP-0.384_20200504_210434-a5d8aa15.pth" target="_blank" rel="noopener noreferrer">faster_rcnn_r50_fpn_2x_coco.pth</a></td>
+    <td class="tg-kfkg"><a href="https://1drv.ms/u/s!AmoaChPnSuIOg25Xi9auHfDeSzrj?e=xgU3nm" target="_blank" rel="noopener noreferrer">faster_rcnn_r50_fpn_1x_coco</a></td>
   </tr>
   <tr>
-    <td class="tg-c3ow">3</td>
+    <td class="tg-c3ow">4</td>
     <td class="tg-c3ow">ATSS-R50</td>
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
     <td class="tg-c3ow"><span style="font-weight:bold">0.747</span></td>
     <td class="tg-c3ow">17.9</td>
     <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"><a href="https://github.com/TuanTNG/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/blob/master/configs/street/atss_r50_fpn_1x_street.py" target="_blank" rel="noopener noreferrer">atss_r50_fpn_1x_street.py</a></td>
+    <td class="tg-c3ow"><a href="http://download.openmmlab.com/mmdetection/v2.0/atss/atss_r50_fpn_1x_coco/atss_r50_fpn_1x_coco_20200209-985f7bd0.pth" target="_blank" rel="noopener noreferrer">atss_r50_fpn_1x_coco.pth</a></td>
+    <td class="tg-c3ow"><a href="https://1drv.ms/u/s!AmoaChPnSuIOg2aXjOGjIdC41Oca?e=GVPQiq" target="_blank" rel="noopener noreferrer">atss_r50_fpn_1x_street</a></td>
     <td class="tg-c3ow">Baseline</td>
   </tr>
   <tr>
-    <td class="tg-kfkg">4</td>
+    <td class="tg-kfkg">5</td>
     <td class="tg-kfkg">ATSS+Net-R18</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">1x</td>
-    <td class="tg-kfkg">5</td>
     <td class="tg-kfkg">0.522</td>
     <td class="tg-kfkg">30</td>
     <td class="tg-kfkg">---</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
     <td class="tg-kfkg" rowspan="3"><br><br>Different <br><br>Backbones</td>
   </tr>
   <tr>
-    <td class="tg-kfkg">5</td>
+    <td class="tg-kfkg">6</td>
     <td class="tg-kfkg">ATSS+MobileNetV3</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">1x</td>
-    <td class="tg-kfkg">5</td>
     <td class="tg-kfkg">0.646</td>
     <td class="tg-kfkg">32.5</td>
     <td class="tg-kfkg">---</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
   </tr>
   <tr>
-    <td class="tg-kfkg">6</td>
+    <td class="tg-kfkg">7</td>
     <td class="tg-kfkg">Vanila RetinaNet with MobileNetv3</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">1x</td>
-    <td class="tg-kfkg">5</td>
     <td class="tg-kfkg">0.38</td>
     <td class="tg-kfkg">x</td>
     <td class="tg-kfkg">---</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
   </tr>
   <tr>
-    <td class="tg-c3ow">7</td>
+    <td class="tg-c3ow">8</td>
     <td class="tg-c3ow">ATSS-R50</td>
     <td class="tg-c3ow">yes</td>
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
     <td class="tg-c3ow">0.686</td>
     <td class="tg-c3ow">---</td>
     <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"><a href="https://github.com/TuanTNG/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/blob/master/configs/street/atss_r50_fpn_albu_1x_street.py" target="_blank" rel="noopener noreferrer">atss_r50_fpn_albu_1x_street.py</a></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
     <td class="tg-c3ow">Augment</td>
   </tr>
   <tr>
-    <td class="tg-kfkg">8</td>
+    <td class="tg-kfkg">9</td>
     <td class="tg-kfkg">ATSS-R50</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">1x</td>
-    <td class="tg-kfkg">5</td>
-    <td class="tg-kfkg">0.759</td>
+    <td class="tg-n533">0.759</td>
     <td class="tg-kfkg">---</td>
     <td class="tg-kfkg">4096x3072</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
     <td class="tg-kfkg">Big size</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">9</td>
-    <td class="tg-c3ow">ATSS-R50</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">no</td>
-    <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
-    <td class="tg-c3ow">0.679</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-c3ow" rowspan="3"><br><br>lr=1e-3</td>
   </tr>
   <tr>
     <td class="tg-c3ow">10</td>
@@ -289,85 +263,95 @@ Our results of the object detection method are summarized in the following table
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">3</td>
-    <td class="tg-c3ow">0.656</td>
+    <td class="tg-c3ow">0.679</td>
     <td class="tg-c3ow">---</td>
     <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow" rowspan="3"><br><br>lr=1e-3</td>
   </tr>
   <tr>
     <td class="tg-c3ow">11</td>
+    <td class="tg-c3ow">ATSS-R50 (3fpn levels)</td>
+    <td class="tg-c3ow">no</td>
+    <td class="tg-c3ow">no</td>
+    <td class="tg-c3ow">1x</td>
+    <td class="tg-c3ow">0.656</td>
+    <td class="tg-c3ow">---</td>
+    <td class="tg-c3ow">---</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">12</td>
     <td class="tg-c3ow">ATSS-R50</td>
     <td class="tg-c3ow">yes</td>
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
     <td class="tg-c3ow">0.667</td>
     <td class="tg-c3ow">---</td>
     <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-kfkg">12</td>
-    <td class="tg-kfkg">ATSS-R50</td>
-    <td class="tg-kfkg">no</td>
-    <td class="tg-kfkg">yes</td>
-    <td class="tg-kfkg">2x</td>
-    <td class="tg-kfkg">5</td>
-    <td class="tg-kfkg">0.728</td>
-    <td class="tg-kfkg">---</td>
-    <td class="tg-kfkg">---</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-kfkg" rowspan="3"><br><br><br>2x</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
   </tr>
   <tr>
     <td class="tg-kfkg">13</td>
     <td class="tg-kfkg">ATSS-R50</td>
-    <td class="tg-kfkg">yes</td>
+    <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">yes</td>
     <td class="tg-kfkg">2x</td>
-    <td class="tg-kfkg">5</td>
-    <td class="tg-kfkg">0.75</td>
+    <td class="tg-kfkg">0.728</td>
     <td class="tg-kfkg">---</td>
     <td class="tg-kfkg">---</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"><a href="https://github.com/TuanTNG/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/blob/master/configs/street/atss_r50_fpn_2x_street.py" target="_blank" rel="noopener noreferrer">atss_r50_fpn_2x_street.py</a></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg" rowspan="3"><br><br><br>2x</td>
   </tr>
   <tr>
     <td class="tg-kfkg">14</td>
     <td class="tg-kfkg">ATSS-R50</td>
+    <td class="tg-kfkg">yes</td>
+    <td class="tg-kfkg">yes</td>
+    <td class="tg-kfkg">2x</td>
+    <td class="tg-n533">0.75</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-kfkg">---</td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+  </tr>
+  <tr>
+    <td class="tg-kfkg">15</td>
+    <td class="tg-kfkg">ATSS-R50</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">no</td>
     <td class="tg-kfkg">2x</td>
-    <td class="tg-kfkg">5</td>
     <td class="tg-kfkg">0.747</td>
     <td class="tg-kfkg">---</td>
     <td class="tg-kfkg">---</td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
-    <td class="tg-x6qq"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
+    <td class="tg-kfkg"></td>
   </tr>
   <tr>
-    <td class="tg-c3ow">15</td>
+    <td class="tg-c3ow">16</td>
     <td class="tg-c3ow">ATSS-R50 - Focal KL loss</td>
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">no</td>
     <td class="tg-c3ow">1x</td>
-    <td class="tg-c3ow">5</td>
     <td class="tg-c3ow">0.607</td>
     <td class="tg-c3ow">---</td>
     <td class="tg-c3ow">---</td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
     <td class="tg-c3ow">Focal KL Loss</td>
   </tr>
 </tbody>
 </table>
+
+**NOTE** COCO trained weights are taken from [MMDetection repo](https://github.com/open-mmlab/mmdetection).
