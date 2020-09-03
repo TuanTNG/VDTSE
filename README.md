@@ -36,15 +36,21 @@ pip install git+https://github.com/thuyngch/cvut
 pip install future tensorboard
 ```
 
-#### Install ttdet as package
+<!-- #### Install ttdet as package
 ```bash
 pip install -e ./
-```
+``` -->
 
-#### Make soft directory to data folder
-```bash
-ln -s /home/cybercore/tank/TS/data/thesisdata data
-```
 
 ## Dataset preparation
-- Download dataset from Google Drive [Link]()
+- Download dataset from Google Drive [Link](https://drive.google.com/file/d/1EcfzRi7bHdZDAwIDBdBtyAIEsWmytqUa/view?usp=sharing) and unzip it.
+
+- Make symblic link to the dataset you just downloaded from project directory:
+```bash
+ln -s <PATH TO DATASET> data
+```
+**For Example**, my dataset named `data` is located at `/home/tuan/Desktop` <br> <br>, I do the following command:
+![alt text](./readme_images/ln_s.png)
+
+<br>
+The result in the image above is that I make the symblic link name `data` to the folder containing dataset.
