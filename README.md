@@ -14,6 +14,7 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 - Train
 - Test
 - Result
+- Team's information
 - Citation
 
 ## Installation
@@ -355,3 +356,18 @@ Our results of the object detection method are summarized in the following table
 </table>
 
 **NOTE** COCO trained weights are taken from [MMDetection repo](https://github.com/open-mmlab/mmdetection).
+
+## Team member
+- [Tuan Tang Ngoc](https://tuantng.github.io/) - Develop object detection part
+- Nam Cao Van - Develop object tracking and speed estimation part
+- [Ph.D. Hao Nguyen Vinh](https://www.researchgate.net/profile/Vinh_Hao_Nguyen) - Supervisor
+
+## Citation
+```
+@article{vdtse,
+  title   = {Vehicles Detection Tracking Speed Estimation},
+  author  = {Tuan Tang Ngoc, Nam Cao Van, Hao Nguyen Vinh},
+  journal= {https://github.com/TuanTNG/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet},
+  year={2020}
+}
+```
