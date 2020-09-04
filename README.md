@@ -361,6 +361,10 @@ Our results of the object detection method are summarized in the following table
 
 **NOTE** COCO trained weights are taken from [MMDetection repo](https://github.com/open-mmlab/mmdetection).
 
+- Object detection results is visualized as:
+![alt-text-1](readme_images/IMG_0594.JPG) ![alt-text-2](readme_images/IMG_1504.JPG)
+![alt-text-1](readme_images/IMG_1510.JPG) ![alt-text-2](readme_images/IMG_1523.JPG)
+
 ## Team member
 - [Tuan Tang Ngoc](https://tuantng.github.io/) - Develop object detection part
 - Nam Cao Van - Develop object tracking and speed estimation part
