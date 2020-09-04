@@ -366,16 +366,13 @@ Our results of the object detection method are summarized in the following table
 Run following bash to visualize:
 ```bash
  #!/usr/bin/env bash
+ #!/usr/bin/env bash
 set -e
-NAME='atss_r50_fpn_1x_street'
-CONFIG="configs/street/${NAME}.py"
-WORKDIR="../checkpoints/transfer_weight/${NAME}"
-CHECKPOINT="${WORKDIR}/epoch_12.pth"
-DATADIR="data/"
-THR=0.5
-OUTDIR="cache/street"                               # Path to save your results
-
-python tools/visualize_testset.py $CONFIG --ckpt $CHECKPOINT --data_dir $DATADIR --det_thr $THR --out_dir $OUTDIR --num_imgs 200
+CONFIG="configs/street/atss_r50_fpn_1x_street.py"                   # Path to your config file
+CHECKPOINT="../trained_weight/atss_r50_fpn_1x_street_epoch_12.pth"  # Path to checkpoint file. In this case, the checkpoint file is `atss_r50_fpn_1x_street_epoch_12.pth`
+DATADIR="data/"                                                     # Path to your data directory
+THR=0.5                                                             # Detection threshold
+OUTDIR="./cache/street"                                             # Path to save output images
 ```
 - Object detection results is visualized as:
 ![alt-text-1](readme_images/IMG_0594.JPG) ![alt-text-2](readme_images/IMG_1504.JPG)
