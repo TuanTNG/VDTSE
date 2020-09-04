@@ -88,23 +88,20 @@ bash tools/dist_train.sh $CONFIG $GPUS --work-dir $WORKDIR  --options DATA_ROOT=
 
 ## 5. Test 
 - Run the following command in bash shell:
-
+**NOTE:** The trained weights can be downloaded in section **6. Result**
 ```bash
 #!/usr/bin/env bash
 set -e
 export PYTHONPATH="$(dirname $0)/..":$PYTHONPATH
 
-CONFIG_FILE="atss_r18_fpn_2x_street"                            # file name of config file
-WORKDIR="../TS/checkpoints/transfer_weight/${CONFIG_FILE}"      # directory of checkpoints
-CONFIG="configs/street/${CONFIG_FILE}.py"                       # path to your config file
-CHECKPOINT="${WORKDIR}/epoch_12.pth"                            # checkpoint file, in this case `epoch_12.pth`
-RESULT="${WORKDIR}/epoch_12.pkl"
+CONFIG="configs/street/atss_r50_fpn_1x_street.py"                   # path to your config file
+CHECKPOINT="../trained_weight/atss_r50_fpn_1x_street_epoch_12.pth"  # path to your checkpoint file, in this case, checkpoint file is `atss_r50_fpn_1x_street_epoch_12.pth`
 
 GPUS=2
 export CUDA_VISIBLE_DEVICES=0,1
 
 python -m torch.distributed.launch --nproc_per_node=$GPUS --master_port=$((RANDOM + 10000)) \
-    tools/test.py $CONFIG $CHECKPOINT --launcher pytorch --out $RESULT --eval bbox
+    tools/test.py $CONFIG $CHECKPOINT --launcher pytorch --eval bbox
 ```
 
 - Run the following command to test the speed of network:
@@ -365,6 +362,7 @@ Our results of the object detection method are summarized in the following table
 **NOTE** COCO trained weights are taken from [MMDetection repo](https://github.com/open-mmlab/mmdetection).
 
 ## 7. Visualize
+**NOTE:** The trained weights can be downloaded in section **6. Result**
 Run following bash to visualize:
 ```bash
  #!/usr/bin/env bash
