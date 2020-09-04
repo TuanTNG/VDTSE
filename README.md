@@ -178,7 +178,7 @@ Our results of the object detection method are summarized in the following table
     <td class="tg-kfkg">x</td>
     <td class="tg-kfkg"><a href="https://github.com/TuanTNG/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/blob/master/configs/street/faster_rcnn_r50_fpn_1x_street.py" target="_blank" rel="noopener noreferrer">faster_rcnn_r50_fpn_1x_street.py</a></td>
     <td class="tg-kfkg"><a href="http://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_2x_coco/faster_rcnn_r50_fpn_2x_coco_bbox_mAP-0.384_20200504_210434-a5d8aa15.pth" target="_blank" rel="noopener noreferrer">faster_rcnn_r50_fpn_2x_coco.pth</a></td>
-    <td class="tg-kfkg"><a href="https://1drv.ms/u/s!AmoaChPnSuIOg25Xi9auHfDeSzrj?e=xgU3nm" target="_blank" rel="noopener noreferrer">faster_rcnn_r50_fpn_1x_coco</a></td>
+    <td class="tg-kfkg"><a href="https://1drv.ms/u/s!AmoaChPnSuIOg25Xi9auHfDeSzrj?e=u4CcyH" target="_blank" rel="noopener noreferrer">faster_rcnn_r50_fpn_1x_street</a></td>
   </tr>
   <tr>
     <td class="tg-c3ow">4</td>
