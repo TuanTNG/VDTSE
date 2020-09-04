@@ -13,8 +13,9 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 - Installation
 - Dataset preparation
 - Train
-- Test & Visualize
+- Test
 - Object detection results summary 
+- Object detection visualize
 - Team's information
 - Citation
 
