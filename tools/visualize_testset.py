@@ -109,5 +109,5 @@ if __name__ == "__main__":
         # cv2.imwrite(out_file, img)
         cv2.imwrite(out_file, image)
         print("Output is saved at {}".format(out_file))
-        if i > 50:
+        if i > args.num_imgs:
             break
