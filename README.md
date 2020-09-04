@@ -13,8 +13,8 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 - Installation
 - Dataset preparation
 - Train
-- Test
-- Result
+- Test & Visualize
+- Result 
 - Team's information
 - Citation
 
@@ -361,6 +361,21 @@ Our results of the object detection method are summarized in the following table
 
 **NOTE** COCO trained weights are taken from [MMDetection repo](https://github.com/open-mmlab/mmdetection).
 
+## Visualize
+Run following bash to visualize:
+```bash
+ #!/usr/bin/env bash
+set -e
+NAME='atss_r50_fpn_1x_street'
+CONFIG="configs/street/${NAME}.py"
+WORKDIR="../checkpoints/transfer_weight/${NAME}"
+CHECKPOINT="${WORKDIR}/epoch_12.pth"
+DATADIR="data/"
+THR=0.5
+OUTDIR="cache/street"
+
+python tools/visualize_testset.py $CONFIG --ckpt $CHECKPOINT --data_dir $DATADIR --det_thr $THR --out_dir $OUTDIR --num_imgs 200
+```
 - Object detection results is visualized as:
 ![alt-text-1](readme_images/IMG_0594.JPG) ![alt-text-2](readme_images/IMG_1504.JPG)
 ![alt-text-1](readme_images/IMG_1510.JPG) ![alt-text-2](readme_images/IMG_1523.JPG)

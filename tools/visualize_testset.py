@@ -9,13 +9,13 @@ from mmcv.parallel import collate, scatter
 from mmdet.apis.inference import LoadImage
 from mmdet.datasets.pipelines import Compose
 
-from ccdet.apis import init_detector
-from ccdet.models import build_detector
+from mmdet.apis import init_detector
+from mmdet.models import build_detector
 
 import numpy as np
 import matplotlib.pyplot as plt
 import os, cv2, mmcv, torch, cvut
-from ccdet.datasets import build_dataset
+from mmdet.datasets import build_dataset
 import os
 from mmcv import Config
 import tqdm
