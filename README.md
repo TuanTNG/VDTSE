@@ -9,20 +9,20 @@ This is the thesis conducted while we are studying in Ho Chi Minh City Universit
 - Make new dataset: The main problem we encounter is GPU resources for train Deep Learning Network. If we utilized the existed dataset which is extremely large and heavy, we could not do on that. Hence, we need a new dataset which is liter and apply transfer learning technique to reach our target. The details of our dataset is in the later section.
 
 **Structure of this README**
-- Overall architecture
-- Installation
-- Dataset preparation
-- Train
-- Test
-- Object detection results summary 
-- Object detection visualize
-- Team's information
-- Citation
+1. Overall architecture
+2. Installation
+3. Dataset preparation
+4. Train
+5. Test
+6. Object detection results summary 
+7. Object detection visualize
+8. Team's information
+9. Citation
 
-## Overall Architecture
+## 1. Overall Architecture
 ![alt text](./readme_images/OurArchitecture.PNG) <br>
 
-## Installation
+## 2. Installation
 - OS: Ubuntu 18.04
 - Python: 3.7.9
 #### Create conda env
@@ -52,7 +52,9 @@ pip install -e ./
 ``` -->
 
 
-## Dataset preparation
+## 3. Dataset preparation
+- We collect the dataset of vehicles in Ho Chi Minh City and label them handly. It contains 1029 images with 5 classes. The annotation files are [COCO Object Detection](https://cocodataset.org/#format-data) in format. The detail of our dataset is shown in the table bellow:<br><br>
+![alt text](./readme_images/details_dataset.PNG) <br>
 - Download dataset from Google Drive [Link](https://drive.google.com/file/d/1EcfzRi7bHdZDAwIDBdBtyAIEsWmytqUa/view?usp=sharing) and unzip it.
 - The data after extracted should following the following structure: <br>
 ![alt text](./readme_images/data_dir_format.png) <br>
@@ -66,7 +68,7 @@ ln -s <PATH TO DATASET> data
 
 The result in the image above is that I make the symblic link name `data` to the folder containing dataset.
 <br>
-## Train
+## 4. Train
 - Run the following command in bash shell:
 ```bash
 #!/usr/bin/env bash
@@ -84,7 +86,7 @@ bash tools/dist_train.sh $CONFIG $GPUS --work-dir $WORKDIR  --options DATA_ROOT=
 - NOTE: The pretrained weight from COCO is download at [MMDetection repo](https://github.com/open-mmlab/mmdetection), following section will give the specific link. 
 
 
-## Test 
+## 5. Test 
 - Run the following command in bash shell:
 
 ```bash
@@ -111,7 +113,7 @@ python -m torch.distributed.launch --nproc_per_node=$GPUS --master_port=$((RANDO
 python tools/benchmark.py <YOUR_CONFIG_FILE.py>
 ```
 
-## Result
+## 6. Result
 Our results of the object detection method are summarized in the following table:
 <!-- <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -362,7 +364,7 @@ Our results of the object detection method are summarized in the following table
 
 **NOTE** COCO trained weights are taken from [MMDetection repo](https://github.com/open-mmlab/mmdetection).
 
-## Visualize
+## 7. Visualize
 Run following bash to visualize:
 ```bash
  #!/usr/bin/env bash
@@ -381,12 +383,12 @@ python tools/visualize_testset.py $CONFIG --ckpt $CHECKPOINT --data_dir $DATADIR
 ![alt-text-1](readme_images/IMG_0594.JPG) ![alt-text-2](readme_images/IMG_1504.JPG)
 ![alt-text-1](readme_images/IMG_1510.JPG) ![alt-text-2](readme_images/IMG_1523.JPG)
 
-## Team member
+## 8. Team member
 - [Tuan Tang Ngoc](https://tuantng.github.io/) - Develop object detection part
 - Nam Cao Van - Develop object tracking and speed estimation part
 - [Ph.D. Hao Nguyen Vinh](https://www.researchgate.net/profile/Vinh_Hao_Nguyen) - Supervisor
 
-## Citation
+## 9. Citation
 ```
 @article{vdtse,
   title   = {Vehicles Detection Tracking Speed Estimation},
