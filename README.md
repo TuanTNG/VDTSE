@@ -53,7 +53,7 @@ pip install -e ./
 
 
 ## 3. Dataset preparation
-- We collect the dataset of vehicles in Ho Chi Minh City and label them handly. It contains 1029 images with 5 classes. The annotation files are [COCO Object Detection](https://cocodataset.org/#format-data) in format. The detail of our dataset is shown in the table bellow:<br><br>
+- We collect the dataset of vehicles in Ho Chi Minh City at the overpass and label them handly. It contains 1029 images with 5 classes. The annotation files are [COCO Object Detection](https://cocodataset.org/#format-data) in format. The detail of our dataset is shown in the table bellow:<br><br>
 ![alt text](./readme_images/details_dataset.PNG) <br>
 - Download dataset from Google Drive [Link](https://drive.google.com/file/d/1EcfzRi7bHdZDAwIDBdBtyAIEsWmytqUa/view?usp=sharing) and unzip it.
 - The data after extracted should following the following structure: <br>
