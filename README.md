@@ -73,12 +73,12 @@ The result in the image above is that I make the symblic link name `data` to the
 ```bash
 #!/usr/bin/env bash
 set -e
-CFG="atss_r50_fpn_1x_street"                                        # file name of config file
-WORKDIR="../TS/checkpoints/transfer_weight/${CFG}"                  # directory for saving checkpoints during training
-CONFIG="configs/street/${CFG}.py"                                   # path to your config file
-GPUS=2                                                              # number of GPU while training
-LOAD_FROM="../TS/checkpoints/pretrained/atss_r50_fpn_1x_coco.pth"   # Pretrain weight from COCO dataset
+WORKDIR="../trained_weight/atss_r50_fpn_1x_street"  # directory for saving checkpoints during training
+CONFIG="configs/street/atss_r50_fpn_1x_street.py"   # path to your config file
+GPUS=2                                              # number of GPU while training
+LOAD_FROM="../pretrained/atss_r50_fpn_1x_coco.pth"  # Pretrain weight from COCO dataset
 export CUDA_VISIBLE_DEVICES=0,1
+
 bash tools/dist_train.sh $CONFIG $GPUS --work-dir $WORKDIR  --options DATA_ROOT=$DATA_ROOT --load_from $LOAD_FROM
 ```
 - In the above example, config file is `configs/street/atss_r50_fpn_1x_street.py`, pretrained weight is `atss_r50_fpn_1x_coco.pth` and saved at `../TS/checkpoints/pretrained`. Checkpoints will save under `../TS/checkpoints/transfer_weight/atss_r50_fpn_1x_street`.
@@ -365,7 +365,6 @@ Our results of the object detection method are summarized in the following table
 **NOTE:** The trained weights can be downloaded in section **6. Result**
 Run following bash to visualize:
 ```bash
- #!/usr/bin/env bash
  #!/usr/bin/env bash
 set -e
 CONFIG="configs/street/atss_r50_fpn_1x_street.py"                   # Path to your config file
