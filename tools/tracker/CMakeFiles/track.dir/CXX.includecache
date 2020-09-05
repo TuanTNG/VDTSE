@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/array.h
+iostream
+-
+
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/iou.h
+
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/main.cpp
+array.h
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/array.h
+tracker.h
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/tracker.h
+cstdint
+-
+iostream
+-
+
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/tracker.cpp
+array.h
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/array.h
+set
+-
+tracker.h
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/tracker.h
+iou.h
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/iou.h
+cmath
+-
+iostream
+-
+
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/tracker.h
+array.h
+/home/cybercore/tank/Vehicles-Detection-Tracking-Speed-estimation-pytorch-mmdet/tools/tracker/array.h
+cstdint
+-
+
