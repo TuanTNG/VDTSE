@@ -30,7 +30,7 @@ This is the thesis conducted at Ho Chi Minh City University of Technology, Vietn
 conda create -n vdts python=3.7 -y
 conda activate vdts
 ```
-#### Install Pytorch, Torchvision and mmdetection
+#### Install Pytorch, Torchvision, mmdetection and mmcv
 ```bash 
 conda install pytorch=1.5 torchvision -c pytorch
 pip install "git+https://github.com/open-mmlab/cocoapi.git#subdirectory=pycocotools"
