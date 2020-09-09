@@ -16,6 +16,7 @@ struct Object{
 	const int id;
 	mutable int cls;
 
+	mutable bool counted;
 	mutable bool visible; //even when object disappears, we still keep tracking for sometimes
 
 	mutable int x, y, w, h;
@@ -46,6 +47,8 @@ cls(cls),
 x(x), y(y), w(w), h(h)
 {
     v = -1;
+	counted = false;
+	fully_appeared = true;
     if (!at_edge()){
         fully_appeared = true;
         ot = t;
@@ -105,6 +108,8 @@ bool Object::at_edge() const{
         return true;
     if (y + h / 2 > cam_info::h - h01)
         return true;
+	if (y - h / 2 < h01)
+        return true;
     return false;
 }
 
@@ -131,6 +136,7 @@ static void update(float t, int cls, int x, int y, int w, int h){
 	float best_iou = 0.0;
 	const Object *p;
 	for (auto& obj: data){
+		if (cls != obj.cls) continue;
 		float iou = obj.iou(x, y, w, h);
 		if (iou > best_iou){
 			best_iou = iou;
@@ -139,13 +145,13 @@ static void update(float t, int cls, int x, int y, int w, int h){
 	}
 
     // if there is a match, update
-	if (best_iou > 0)
+	if (best_iou > 0.5)
 		p -> update(t, cls, x, y, w, h);
+
     // if there is no match, create new
 	else {
 		Object new_obj(t, get_id(), cls, x, y, w, h);
 		data.insert(new_obj);
-		counter[cls] += 1;
 	}
 }
 
@@ -202,6 +208,12 @@ void track(float t, array<std::int32_t>& x){
 
 	for (auto& obj: data)
         obj.visible = (t == obj.t);
+	
+	for (auto& obj: data)
+		if (!obj.counted && obj.t - obj.ot > 0.5){
+			obj.counted = true;
+			counter[obj.cls]++;
+		}
 }
 
 int write(array<std::int32_t>& track_data, array<std::int32_t>& count_data){

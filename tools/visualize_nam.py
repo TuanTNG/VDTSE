@@ -48,9 +48,33 @@ def draw_bboxes(image, bboxes, color=(0,255,0), thickness=1, font=cv2.FONT_HERSH
         y1 = y - h // 2
         y2 = y1 + h
         cv2.rectangle(image, (x1,y1), (x2,y2), color, thickness=thickness)
-        cv2.putText(
-            image, class_names[cls] + ' ' + str(v), (x1,y1-2),
-            font, font_size, color, thickness=font_thickness)
+        text = class_names[cls]
+        
+        if v != -1:
+            text = text + ' ' + str(v)
+            
+        textsize = cv2.getTextSize(text, font, font_size, font_thickness)[0]
+        cv2.rectangle(image, (x1, y1 - textsize[1] - 4), (x1 + textsize[0] + 4, y1), (0, 0, 0), -1)
+        cv2.putText(image, text, (x1 + 2, y1 - 2), font, font_size, color, font_thickness)
+        
+
+def draw_count(image, count, color=(0,255,0), thickness=1, font=cv2.FONT_HERSHEY_SIMPLEX, font_size=0.5, font_thickness=2):
+    texts = []
+    sizes = []
+    
+    for name, c in zip(class_names, count):
+        texts.append(name + ': ' + str(int(c)))
+        textsize = cv2.getTextSize(texts[-1], font, font_size, font_thickness)[0]
+        sizes.append(textsize)
+    
+    w = max((s[0] for s in sizes))
+    h = sum((s[1] for s in sizes)) + 10
+    
+    cv2.rectangle(image, (0, image.shape[0]-h), (w, image.shape[0]), (0, 0, 0), -1)
+    org = image.shape[0] - 2
+    for text, size in zip(texts, sizes):
+        cv2.putText(image, text, (2, org), font, font_size, color, font_thickness)
+        org -= size[1] + 2
 
 #------------------------------------------------------------------------------
 #  ArgumentParser
@@ -112,12 +136,12 @@ if __name__ == "__main__":
     # img_file la duong dan toi hinh anh cua anh hoac la anh sau di doc len bang opencv (str hoac array)
 
     # load video
-    vid = cv2.VideoCapture('./videos/IMG_0685.MOV')
+    vid = cv2.VideoCapture('./videos/IMG_1363.MOV')
     fourcc = cv2.VideoWriter_fourcc(*"MJPG")
     vw = cv2.VideoWriter('out.avi', fourcc, 30, (1920, 1080))
     # -------------------------------
 
-    tracker.camera_info(1920, 1080, 60, 58.040, 5)
+    tracker.camera_info(1920, 1080, 62, 58.040, 5)
     
     t = 0
     while True:
@@ -165,7 +189,8 @@ if __name__ == "__main__":
 
         track, count = tracker.track(t, detection)
 
-        draw_bboxes(image, track, thickness=2, font_size=2, font_thickness=2)        
+        draw_bboxes(image, track, thickness=2, font_size=2, font_thickness=2)
+        draw_count(image, count, thickness=2, font_size=2, font_thickness=2)   
         # import ipdb; ipdb.set_trace()
         # img = model.show_result(data['img_metas'][0][0]['filename'], result, score_thr=args.det_thr, show=False,  thickness=args.thickness, font_scale=args.font_scale)
 
