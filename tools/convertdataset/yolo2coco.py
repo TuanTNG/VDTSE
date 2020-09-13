@@ -17,8 +17,9 @@ save_anno = './cache/first.json'
 def parse_args():
     parser = argparse.ArgumentParser(description='Convert YOLO json file to COCO json file')
     parser.add_argument('img_dir', help='path to image')
-    parser.add_argument('anno_dir', help='path to anno fils')
+    parser.add_argument('anno_dir', help='path to anno files')
     parser.add_argument('save_anno_file', help='path and name to save coco json file after converting')
+    parser.add_argument('--img-extension', default='.PNG')
     args = parser.parse_args()
     return args
 
@@ -26,6 +27,7 @@ args = parse_args()
 train_img = args.img_dir
 train_anno = args.anno_dir
 save_anno = args.save_anno_file
+img_extension = args.img_extension
 
 def getbox(path, H, W):
     with open(path) as f:
@@ -57,12 +59,12 @@ def make_annotation(img_path, anno_path, an_format='.txt'):
         name, extension = os.path.splitext(file)
         if extension.lower() != '.txt' or name=='classes':
             continue
-        if os.path.exists(os.path.join(img_path,name+'.JPG')) == False:
-            print('file is not existed: ', os.path.join(img_path,name+'.JPG'))
+        if os.path.exists(os.path.join(img_path,name+img_extension)) == False:
+            print('file is not existed: ', os.path.join(img_path,name+img_extension))
             continue
 
         img_id = img_id + 1
-        file = name + '.JPG'
+        file = name + img_extension
         img = cv2.imread(os.path.join(img_path,file))
         H,W,_ = img.shape
 
@@ -98,9 +100,9 @@ def make_annotation(img_path, anno_path, an_format='.txt'):
 
 
         if count < 10:
-            cv2.imwrite(f'./cache/img{count}.jpg', img)
-        if count >= 5:
-            break
+            cv2.imwrite(f'./cache/img{count}'+img_extension, img)
+        # if count >= 5:
+        #     break
         count = count + 1
     return images, annotations
         

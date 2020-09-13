@@ -62,7 +62,7 @@ test_cfg = dict(
     max_per_img=100)
 
 classes = ('motorbike','car','bus','truck','person',)
-DATA_ROOT = '/home/member/Workspace/tank/TS_release/dataset/datav2/'
+DATA_ROOT = 'data/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 
@@ -81,7 +81,7 @@ data = dict(
     # samples_per_gpu=8,
     # workers_per_gpu=4,
     train=dict(
-        ann_file=DATA_ROOT + 'annotations/train_night_rain_v2.json',
+        ann_file=DATA_ROOT + 'annotations/train_v12.json',
         img_prefix=DATA_ROOT + 'images/',
         classes=classes,
         pipeline=train_pipeline
