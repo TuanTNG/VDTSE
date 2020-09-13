@@ -4,3 +4,4 @@ vscode/
 .vscode/
 cache/
 __pycache__/
+notebooks/.ipynb_checkpoints/

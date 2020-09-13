@@ -99,8 +99,8 @@ def make_annotation(img_path, anno_path, an_format='.txt'):
 
         if count < 10:
             cv2.imwrite(f'./cache/img{count}.jpg', img)
-        # if count >= 5:
-        #     break
+        if count >= 5:
+            break
         count = count + 1
     return images, annotations
         
@@ -112,6 +112,7 @@ if __name__=='__main__':
     images,annotations = make_annotation(train_img, train_anno)
     data = {'images':images,'annotations':annotations,'categories':categories,'licenses':1, 'info':1}
     # import ipdb; ipdb.set_trace()
-    with open(save_anno + 'thesis_train.json', 'w') as json_file:
+    os.makedirs(os.path.split(save_anno)[0], exist_ok=True)
+    with open(save_anno, 'w') as json_file:
         json.dump(data, json_file)
     print('finish train annotation')
