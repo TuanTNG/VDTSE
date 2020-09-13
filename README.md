@@ -44,6 +44,7 @@ pip install mmcv==0.6.2
 ```bash
 pip install git+https://github.com/thuyngch/cvut
 pip install future tensorboard
+pip install ipdb
 ```
 
 <!-- #### Install ttdet as package
