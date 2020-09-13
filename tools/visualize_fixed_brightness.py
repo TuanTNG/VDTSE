@@ -20,11 +20,22 @@ import os
 from mmcv import Config
 import tqdm
 
-import tracker
+import tracker                                                                                                                                                                                          
 
 #------------------------------------------------------------------------------
 #  Utilization
 #------------------------------------------------------------------------------
+def brightness(img, value=30):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    h, s, v = cv2.split(hsv)
+
+    lim = 255 - value
+    v[v > lim] = 255
+    v[v <= lim] += value
+
+    final_hsv = cv2.merge((h, s, v))
+    img = cv2.cvtColor(final_hsv, cv2.COLOR_HSV2BGR)
+    return img
 
 def inference_detector(model, data):
     with torch.no_grad():
@@ -88,14 +99,19 @@ parser.add_argument("--ckpt", type=str, default=None,
                     help="Checkpoint file")
 
 parser.add_argument("--det_thr", type=float, default=0.3,
-                    help="Detection threshold")
+                    help="Dbrightnessetection threshold")
+
+parser.add_argument("--seg_thr", type=float, default=0.5,
+                    help="Segmentation threshold")
 
 parser.add_argument("--data_dir", type=str,
                     default="/data/coco/images/val2017/",
                     help="Data directory")
-
 parser.add_argument("--out_dir", type=str, default='cache',
                     help="font_scale to draw bounding boxes")
+
+parser.add_argument("--num_imgs", type=int, default=50,
+                    help="Number of images for visualization")
 
 parser.add_argument("--thickness", type=int, default=5,
                     help="thickness to draw bounding boxes")
@@ -105,9 +121,6 @@ parser.add_argument("--font_scale", type=int, default=4,
 
 parser.add_argument("--device", type=str, default='cuda',
                     help="cpu or gpu")
-
-parser.add_argument("--video-name", type=str,
-                    help="name of video")
 
 
 args = parser.parse_args()
@@ -134,40 +147,40 @@ if __name__ == "__main__":
     # img_file la duong dan toi hinh anh cua anh hoac la anh sau di doc len bang opencv (str hoac array)
 
     # load video
-    video_name = args.video_name
-    vid = cv2.VideoCapture(os.path.join(args.data_dir,video_name))
+    vid = cv2.VideoCapture('./data/testvideo/afternoon_rain/IMG_3327.MOV')
     fourcc = cv2.VideoWriter_fourcc(*"MJPG")
-    os.makedirs(args.out_dir, exist_ok=True)
-    vw = cv2.VideoWriter(os.path.join(args.out_dir,video_name), fourcc, 30, (1920, 1080))
+    vw = cv2.VideoWriter('out.avi', fourcc, 30, (1920, 1080))
     # -------------------------------
 
-    tracker.camera_info(1920, 1080, 52, 58.040, 7)
+    tracker.camera_info(1920, 1080, 60, 58.040, 5.5)
     
     t = 0
     while True:
+        print(t)
         t += (1/30)
         # data = get_data(img_file, model.cfg, next(model.parameters()).device)
         # import ipdb; ipdb.set_trace()
         ret, image = vid.read()
         if image is None:
             break 
+        image = brightness(image, 100)
 
         data = get_data(image, model.cfg, next(model.parameters()).device)
 
 
         result = inference_detector(model, data)
 
-        #test        
+        # test                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         # image = mmcv.imread(data['img_metas'][0][0]['filename'])    
 
         bboxes = np.vstack(result)
-        labels = [                          
+        labels = [                                                                                                                                                                                                                                                                                                                                          
             np.full(bbox.shape[0], i, dtype=np.int32)
             for i, bbox in enumerate(result)
         ]
         labels = np.concatenate(labels)
 
-        score_thr = args.det_thr
+        score_thr = 0.3
         scores = bboxes[:, -1]
         inds = scores > score_thr
         bboxes = bboxes[inds, :]
@@ -188,9 +201,17 @@ if __name__ == "__main__":
         detection[:, 3] = h
 
         track, count = tracker.track(t, detection)
+
         draw_bboxes(image, track, thickness=2, font_size=2, font_thickness=2)
         draw_count(image, count, thickness=2, font_size=2, font_thickness=2)   
+        # import ipdb; ipdb.set_trace()
+        # img = model.show_result(data['img_metas'][0][0]['filename'], result, score_thr=args.det_thr, show=False,  thickness=args.thickness, font_scale=args.font_scale)
+
+        # out_file = os.path.join(args.out_dir, str(1)+'.jpg')
+        # cv2.imwrite(out_file, img)
         vw.write(image)
-        
+        # print("Output is saved at {}".format(out_file))
+        # if i > args.num_imgs:
+        #     break
     vw.release()
     vid.release()

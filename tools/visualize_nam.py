@@ -136,12 +136,12 @@ if __name__ == "__main__":
     # img_file la duong dan toi hinh anh cua anh hoac la anh sau di doc len bang opencv (str hoac array)
 
     # load video
-    vid = cv2.VideoCapture('./videos/IMG_1363.MOV')
+    vid = cv2.VideoCapture('./videos/1.MOV')
     fourcc = cv2.VideoWriter_fourcc(*"MJPG")
     vw = cv2.VideoWriter('out.avi', fourcc, 30, (1920, 1080))
     # -------------------------------
 
-    tracker.camera_info(1920, 1080, 62, 58.040, 5)
+    tracker.camera_info(1920, 1080, 52, 58.040, 7)
     
     t = 0
     while True:
