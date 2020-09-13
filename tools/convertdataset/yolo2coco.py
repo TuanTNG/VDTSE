@@ -8,10 +8,24 @@ import tqdm
 import pickle
 from multiprocessing import Manager, Pool
 from functools import partial
+import argparse
 
 train_img = '../data/images/full/full/'
 train_anno = train_img
 save_anno = './cache/first.json'
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Convert YOLO json file to COCO json file')
+    parser.add_argument('img_dir', help='path to image')
+    parser.add_argument('anno_dir', help='path to anno fils')
+    parser.add_argument('save_anno_file', help='path and name to save coco json file after converting')
+    args = parser.parse_args()
+    return args
+
+args = parse_args()
+train_img = args.img_dir
+train_anno = args.anno_dir
+save_anno = args.save_anno_file
 
 def getbox(path, H, W):
     with open(path) as f:
@@ -52,7 +66,7 @@ def make_annotation(img_path, anno_path, an_format='.txt'):
         img = cv2.imread(os.path.join(img_path,file))
         H,W,_ = img.shape
 
-        txtfile = anno_path+name+an_format
+        txtfile = os.path.join(anno_path, name + an_format)
         boxes = getbox(txtfile, H=H, W=W)
         
         # skip empty annotaion
