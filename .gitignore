@@ -3,3 +3,4 @@ data
 vscode/
 .vscode/
 cache/
+__pycache__/
