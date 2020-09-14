@@ -25,6 +25,12 @@ import tracker
 #------------------------------------------------------------------------------
 #  Utilization
 #------------------------------------------------------------------------------
+np.random.seed(0)
+COLOR_DICT = dict()
+for i in range(256):
+	_color_random = np.random.randint(0, 256, (3,), dtype='uint8')
+	COLOR_DICT[i] = tuple(_color_random.tolist())
+COLOR_LEN = len(COLOR_DICT)
 
 def inference_detector(model, data):
     with torch.no_grad():
@@ -38,11 +44,13 @@ def get_data(img, cfg, device):
     data = scatter(collate([data], samples_per_gpu=1), [device])[0]
     return data
 
-class_names = ('motorbike', 'car', 'bus', 'truck', 'person')
+class_names = ('mb', 'car', 'bus', 'truck', 'person')
 
 def draw_bboxes(image, bboxes, color=(0,255,0), thickness=1, font=cv2.FONT_HERSHEY_SIMPLEX, font_size=0.5, font_thickness=2):
     for bbox in bboxes:
-        cls, x, y, w, h, v = [int(ele) for ele in bbox]
+        cls, x, y, w, h, v, id = [int(ele) for ele in bbox]
+        # print(cls, x, y, w, h, v, id)
+        color = COLOR_DICT[id]
         x1 = x - w // 2
         x2 = x1 + w
         y1 = y - h // 2
@@ -193,7 +201,7 @@ if __name__ == "__main__":
 
         track, count = tracker.track(t, detection)
 
-        draw_bboxes(image, track, thickness=2, font_size=2, font_thickness=2)
+        draw_bboxes(image, track, thickness=2, font_size=1, font_thickness=1)
         draw_count(image, count, thickness=2, font_size=2, font_thickness=2)   
         vw.write(image)
         
