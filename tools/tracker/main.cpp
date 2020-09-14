@@ -6,7 +6,7 @@
 extern "C" {
 int track(float t, void* det_ptr, int len, void* ret_ptr, void* count_ptr){
 	array<std::int32_t> det(det_ptr, len, 5);
-	array<std::int32_t> ret(ret_ptr, 256, 6);
+	array<std::int32_t> ret(ret_ptr, 256, 7);
 	array<std::int32_t> counter(count_ptr, 256, 1);
 
 	track(t, det);

@@ -12,7 +12,7 @@ c_track.restypes = ctypes.c_int
 c_camerainfo = lib.camera_info
 
 
-track_result = np.ndarray((256, 6), dtype=np.int32)
+track_result = np.ndarray((256, 7, dtype=np.int32)
 count_result = np.ndarray(256, dtype=np.int32)
 def track(t, detection):
 	detection = np.ascontiguousarray(detection, dtype=np.int32)

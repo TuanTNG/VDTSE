@@ -109,6 +109,10 @@ parser.add_argument("--device", type=str, default='cuda',
 parser.add_argument("--video-name", type=str,
                     help="name of video")
 
+parser.add_argument("--angle", type=float)
+
+parser.add_argument("--height", type=float, default=6)
+
 
 args = parser.parse_args()
 
@@ -141,8 +145,8 @@ if __name__ == "__main__":
     vw = cv2.VideoWriter(os.path.join(args.out_dir,video_name), fourcc, 30, (1920, 1080))
     # -------------------------------
 
-    tracker.camera_info(1920, 1080, 52, 58.040, 7)
-    
+    tracker.camera_info(1920, 1080, args.angle, 58.040, args.height)
+
     t = 0
     while True:
         t += (1/30)
@@ -188,6 +192,7 @@ if __name__ == "__main__":
         detection[:, 3] = h
 
         track, count = tracker.track(t, detection)
+
         draw_bboxes(image, track, thickness=2, font_size=2, font_thickness=2)
         draw_count(image, count, thickness=2, font_size=2, font_thickness=2)   
         vw.write(image)
