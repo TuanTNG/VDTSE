@@ -1,4 +1,4 @@
-# Vehicles Detection Tracking Speed Estimation using pytorch and MMDetection
+# Vehicles Detection, Tracking Speed and Estimation using Pytorch and MMDetection
 
 This is the thesis conducted at Ho Chi Minh City University of Technology, Vietnam while we are students. In this project, we apply Deep Learning using Pytorch framework and based on MMDetection to do vehicles detection, tracking and speed estimation. The dataset is collected at the overpass in Ho Chi Minh City, Vietnam and labels by our team. You can find more information of our work in [Project summary](https://drive.google.com/file/d/1-QFecy0Nt66kEDu6SM0TvYchRfwWZGEX/view?usp=sharing). 
 
